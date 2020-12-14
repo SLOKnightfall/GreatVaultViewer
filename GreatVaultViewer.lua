@@ -96,6 +96,9 @@ function addon:EventHandler(event, arg1 )
 		tinsert(UISpecialFrames, WeeklyRewardsFrame:GetName())
 	elseif event == "ADDON_LOADED" and arg1 == "Blizzard_PVPUI" then 
 		PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnMouseDown", function() addon:ToggleVault() end)
+	elseif event == "ADDON_LOADED" and arg1 == "Blizzard_ChallengesUI" then 
+		ChallengesFrame.WeeklyInfo.Child.WeeklyChest:SetScript("OnMouseDown", function() addon:ToggleVault() end)
+		ChallengesFrame.WeeklyInfo.Child.WeeklyChest:Show()
 	end
 
 end
