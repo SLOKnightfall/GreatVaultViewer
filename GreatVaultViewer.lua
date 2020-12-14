@@ -1,13 +1,11 @@
---  ///////////////////////////////////////////////////////////////////////////////////////////
+--	///////////////////////////////////////////////////////////////////////////////////////////
 --
---   Great Vault Viewer
---  Author: SLOKnightfall
+--	Great Vault Viewer
+--	Author: SLOKnightfall
 
---  
-
+--	Shows the Great Vault from the PvP tab, Mythic Keystone Tab, Keybind, LDB or Minimap icon
 --
-
---  ///////////////////////////////////////////////////////////////////////////////////////////
+--	///////////////////////////////////////////////////////////////////////////////////////////
 
 local addonName, addon = ...
 addon = LibStub("AceAddon-3.0"):NewAddon(addon, addonName, "AceEvent-3.0", "AceConsole-3.0")
@@ -18,7 +16,8 @@ local L = LibStub("AceLocale-3.0"):GetLocale(addonName)
 local GreatVaultViewerLDB = LibStub("LibDataBroker-1.1"):NewDataObject(addonName, {
 	type = "data source",
 	text = "Great Vault Viewer",
-	icon = "Interface\\Icons\\TRADE_ARCHAEOLOGY_CHESTOFTINYGLASSANIMALS",
+	icon = "Interface/Challenges/ChallengeModeTab",
+	iconCoords = {0.245605, 0.436035, 0.000976562, 0.336914},
 	OnClick = function(self, button, down) 
 		addon:ToggleVault()
 	end,})
@@ -59,11 +58,6 @@ local defaults =  {
 }
 
 
-
-
-
-
-
 function GreatVaultViewerLDB:Toggle(value)
 		if value then
 			minimapIcon:Show(addonName)
@@ -88,6 +82,7 @@ function addon:OnInitialize()
 
 	--GreatValutViewerMiniMap:Register("GreatValutViewerMiniMap", GreatVaultViewerLDB, addon.db.MMDB)
 	minimapIcon:Register(addonName, GreatVaultViewerLDB, self.db.profile.minimap)
+	
 end
 
 
@@ -98,13 +93,15 @@ function addon:EventHandler(event, arg1 )
 		PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnMouseDown", function() addon:ToggleVault() end)
 	elseif event == "ADDON_LOADED" and arg1 == "Blizzard_ChallengesUI" then 
 		ChallengesFrame.WeeklyInfo.Child.WeeklyChest:SetScript("OnMouseDown", function() addon:ToggleVault() end)
-		ChallengesFrame.WeeklyInfo.Child.WeeklyChest:Show()
 	end
 
 end
 
 
 function addon:OnEnable()
+	for i, p in pairs(GreatVaultViewerLDB)do
+		print(i)
+	end
 end
 
 
