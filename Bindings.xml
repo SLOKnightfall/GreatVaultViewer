@@ -1,5 +1,5 @@
 <Bindings>
-	<Binding name= "GREATVAULTVIEWER_BINDING_TOGGLE" hidden="false" header="GREATVAULTVIEWER" category="Addons">
+	<Binding name= "GREATVAULTVIEWER_BINDING_TOGGLE" hidden="false" header="GREATVAULTVIEWER" category="AddOns">
 		local addon = LibStub("AceAddon-3.0"):GetAddon("GreatVaultViewer")
 		addon:ToggleVault()
 	</Binding>

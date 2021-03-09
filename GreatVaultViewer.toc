@@ -1,7 +1,7 @@
-﻿## Interface: 90002
+﻿## Interface: 90005
 ## Title: Great Vault Viewer (@project-version@)
 ## Version: @project-version@
-## Game Version: 9.0.2
+## Game Version: 9.0.5
 ## Author: SLOKnightfall
 ## Notes: Shows the Great Vault window by clicking on the Great Vault Icon in PVP window or via keybind. 
 ## SavedVariables: GreatVaultViewer_Options
